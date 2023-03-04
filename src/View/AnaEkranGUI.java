@@ -1,4 +1,4 @@
-package GUI;
+package View;
 
 import Model.*;
 import Model.Number;
@@ -105,16 +105,19 @@ public class AnaEkranGUI extends JFrame {
 		btn_hesapla.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (fld_sayi.getText().length() > 0) {
-					int sonuc;
-					int sayi = Integer.parseInt(fld_sayi.getText());
-					Number number = new Number(sayi,sayitaban,yenitaban);
-					if(cbox_yenitaban.getSelectedIndex() == 0 ) {
-						sonuc = Integer.parseInt(number.ikiliyedonustur(sayi));
+					int sayitaban = taban_sec(cbox_sayitaban.getSelectedIndex());
+					int yenitaban = taban_sec(cbox_yenitaban.getSelectedIndex());
+					int sonuc = 0;
+					if(sayitaban == 2) {
+						Binary binary;
+						try {
+							binary = new Binary(fld_sayi.getText(), yenitaban);
+							sonuc = binary.hesapla();
+						} catch (Exception e1) {
+							JOptionPane.showMessageDialog(panel,"Girdiginiz sayi ikili degil Kontrol ediniz");
+						}
 					}
-					else{
-						int yard = Integer.parseInt(number.ikiliyedonustur(sayi));
-						sonuc = number.genel_donusum(yard);
-					}
+					
 					fld_sonuc.setText(""+sonuc);
 				} else {
 					JOptionPane.showMessageDialog(panel, "Sayı Girilmemis");
