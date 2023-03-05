@@ -38,6 +38,7 @@ public class Binary {
 			if (rakam[i] == '0' || rakam[i] == '1') {
 				flag = true;
 			} else {
+				flag = false;
 				break;
 			}
 

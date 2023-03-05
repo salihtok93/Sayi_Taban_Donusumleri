@@ -30,6 +30,7 @@ public class Decimal {
 					|| rakam[i] == '5' || rakam[i] == '6' || rakam[i] == '7' || rakam[i] == '8' || rakam[i] == '9') {
 				flag = true;
 			} else {
+				flag = false;
 				break;
 			}
 

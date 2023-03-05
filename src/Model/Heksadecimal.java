@@ -39,6 +39,7 @@ public class Heksadecimal {
 					|| rakam[i] == 'f') {
 				flag = true;
 			} else {
+				flag = false;
 				break;
 			}
 

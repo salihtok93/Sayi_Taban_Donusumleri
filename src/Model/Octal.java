@@ -37,6 +37,7 @@ public class Octal {
 					|| rakam[i] == '5' || rakam[i] == '6' || rakam[i] == '7') {
 				flag = true;
 			} else {
+				flag = false;
 				break;
 			}
 
