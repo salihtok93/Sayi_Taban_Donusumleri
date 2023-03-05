@@ -114,7 +114,33 @@ public class AnaEkranGUI extends JFrame {
 							binary = new Binary(fld_sayi.getText(), yenitaban);
 							sonuc = binary.hesapla();
 						} catch (Exception e1) {
-							JOptionPane.showMessageDialog(panel,"Girdiginiz sayi ikili degil Kontrol ediniz");
+							JOptionPane.showMessageDialog(panel,"Girdiginiz Sayi İkilik Tabanda Degil.");
+						}
+					}else if(sayitaban == 10) {
+						Decimal decimal;
+						try {
+							decimal = new Decimal(fld_sayi.getText(),yenitaban);
+							sonuc = Integer.parseInt(decimal.hesapla());
+						} catch (Exception e1) {
+							JOptionPane.showMessageDialog(panel,"Girdiginiz Sayi Onluk Tabanda Degil.");
+						}
+					}
+					else if(sayitaban == 8) {
+						Octal octal;
+						try {
+							octal = new Octal(fld_sayi.getText(),yenitaban);
+							sonuc = Integer.parseInt(octal.hesapla());
+						} catch (Exception e1) {
+							JOptionPane.showMessageDialog(panel, "Girdiginiz Sayi Sekizlik Tabanda Degil.");
+						}
+					}
+					else if(sayitaban == 16) {
+						Heksadecimal heks;
+						try {
+							heks = new Heksadecimal(fld_sayi.getText(),yenitaban);
+							sonuc = Integer.parseInt(heks.hesapla());
+						} catch (Exception e1) {
+							JOptionPane.showMessageDialog(panel, "Girdiginiz Sayi On Altılık Tabanda Degil.");
 						}
 					}
 					
