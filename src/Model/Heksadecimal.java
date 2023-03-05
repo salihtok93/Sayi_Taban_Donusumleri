@@ -5,28 +5,26 @@ public class Heksadecimal {
 	int yeni_taban;
 
 	public Heksadecimal(String sayi, int yeni_taban) throws Exception {
-		if(kontrol_et(sayi)) {
+		if (kontrol_et(sayi)) {
 			this.sayi = sayi;
 			this.yeni_taban = yeni_taban;
-			System.out.println(sayi +"   "+ yeni_taban);
-			
-		}else {
+		} else {
 			throw new Exception("On Altılı Sayi Değil");
 		}
 	}
 
 	public String hesapla() {
-		if(yeni_taban == 2) {
+		if (yeni_taban == 2) {
 			return hekstobinary(sayi);
-		}else if(yeni_taban == 10) {
+		} else if (yeni_taban == 10) {
 			return hekstodecimal(sayi);
-		}else if(yeni_taban == 8) {
+		} else if (yeni_taban == 8) {
 			return hekstooctal(sayi);
-		}else {
-			return sayi;
+		} else {
+			return this.sayi;
 		}
 	}
-	
+
 	public boolean kontrol_et(String sayi) {
 		char[] rakam = new char[sayi.length()];
 		for (int i = 0; i < sayi.length(); i++) {
@@ -40,8 +38,6 @@ public class Heksadecimal {
 					|| rakam[i] == 'a' || rakam[i] == 'b' || rakam[i] == 'c' || rakam[i] == 'd' || rakam[i] == 'e'
 					|| rakam[i] == 'f') {
 				flag = true;
-				
-				
 			} else {
 				break;
 			}
@@ -49,16 +45,18 @@ public class Heksadecimal {
 		}
 		return flag;
 	}
-	
+
 	public String hekstobinary(String sayi) {
 		String snc = hekstodecimal(sayi);
 		Decimal decimal = new Decimal();
 		return decimal.decimaltobinary(Integer.parseInt(snc));
 	}
+
 	public String hekstodecimal(String sayi) {
-		int decimal = Integer.parseInt(sayi,16);
-		return ""+decimal;
+		int decimal = Integer.parseInt(sayi, 16);
+		return "" + decimal;
 	}
+
 	public String hekstooctal(String sayi) {
 		String snc = hekstodecimal(sayi);
 		Decimal decimal = new Decimal();

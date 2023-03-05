@@ -4,18 +4,18 @@ public class Decimal {
 	String sayi;
 	int yeni_taban;
 
-	public Decimal(String sayi,int yeni_taban) throws Exception {
-		if(kontrol_et(sayi)) {
+	public Decimal(String sayi, int yeni_taban) throws Exception {
+		if (kontrol_et(sayi)) {
 			this.sayi = sayi;
 			this.yeni_taban = yeni_taban;
-			System.out.println(sayi +"   "+ yeni_taban);
-			
-		}else {
+
+		} else {
 			throw new Exception("Onlu Sayi Değil");
 		}
 	}
+
 	public Decimal() {
-		
+
 	}
 
 	public boolean kontrol_et(String sayi) {
@@ -36,14 +36,15 @@ public class Decimal {
 		}
 		return flag;
 	}
+
 	public String hesapla() {
-		if(yeni_taban == 2) {
+		if (yeni_taban == 2) {
 			return decimaltobinary(Integer.parseInt(sayi));
-		}else if(yeni_taban == 8) {
+		} else if (yeni_taban == 8) {
 			return decimaltooct(Integer.parseInt(sayi));
-		}else if (yeni_taban == 16) {
+		} else if (yeni_taban == 16) {
 			return decimaltoheks(Integer.parseInt(sayi));
-		}else {
+		} else {
 			return sayi;
 		}
 	}

@@ -1,7 +1,6 @@
 package View;
 
 import Model.*;
-import Model.Number;
 
 import java.awt.EventQueue;
 import java.awt.Font;
@@ -15,9 +14,9 @@ import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
 import java.awt.event.ActionEvent;
+import javax.swing.ImageIcon;
+import javax.swing.SwingConstants;
 
 public class AnaEkranGUI extends JFrame {
 	private String tabanlar[] = { "İkili", "Sekizli", "Onlu", "Onaltılı" };
@@ -45,10 +44,11 @@ public class AnaEkranGUI extends JFrame {
 	 * Create the frame.
 	 */
 	public AnaEkranGUI() {
+		setResizable(false);
 		
 		setTitle("Taban Donusum Hesaplama Aracı");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 500);
+		setBounds(100, 100, 458, 500);
 		w_pane = new JPanel();
 		w_pane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -56,7 +56,7 @@ public class AnaEkranGUI extends JFrame {
 		w_pane.setLayout(null);
 
 		JTabbedPane w_tabpane = new JTabbedPane(JTabbedPane.TOP);
-		w_tabpane.setBounds(10, 10, 788, 437);
+		w_tabpane.setBounds(10, 10, 426, 437);
 		w_pane.add(w_tabpane);
 
 		JPanel panel = new JPanel();
@@ -177,6 +177,12 @@ public class AnaEkranGUI extends JFrame {
 		btn_hesapla_1.setFont(new Font("Yu Gothic Light", Font.PLAIN, 18));
 		btn_hesapla_1.setBounds(21, 225, 160, 27);
 		panel.add(btn_hesapla_1);
+		
+		JLabel lblNewLabel = new JLabel("Github :salihtok93");
+		lblNewLabel.setFont(new Font("Yu Gothic Medium", Font.PLAIN, 14));
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setBounds(282, 380, 129, 20);
+		panel.add(lblNewLabel);
 		
 
 		

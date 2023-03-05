@@ -3,30 +3,28 @@ package Model;
 public class Octal {
 	String sayi;
 	int yeni_taban;
-	
-	public Octal(String sayi,int yeni_taban) throws Exception {
-		if(kontrol_et(sayi)) {
+
+	public Octal(String sayi, int yeni_taban) throws Exception {
+		if (kontrol_et(sayi)) {
 			this.sayi = sayi;
 			this.yeni_taban = yeni_taban;
-			System.out.println(sayi +"   "+ yeni_taban);
-			
-		}else {
+		} else {
 			throw new Exception("Sekizli Sayi Değil");
 		}
 	}
-	
+
 	public String hesapla() {
-		if(yeni_taban == 2) {
+		if (yeni_taban == 2) {
 			return octaltobinary(Integer.parseInt(sayi));
-		}else if(yeni_taban == 10) {
+		} else if (yeni_taban == 10) {
 			return octaltoDecimal(Integer.parseInt(sayi));
-		}else if(yeni_taban == 16) {
+		} else if (yeni_taban == 16) {
 			return octaltoHeks(Integer.parseInt(sayi));
-		}else {
+		} else {
 			return sayi;
 		}
 	}
-	
+
 	public boolean kontrol_et(String sayi) {
 		char[] rakam = new char[sayi.length()];
 		for (int i = 0; i < sayi.length(); i++) {
@@ -45,28 +43,28 @@ public class Octal {
 		}
 		return flag;
 	}
-	
+
 	public String octaltobinary(int sayi) {
 		int snc = Integer.parseInt(octaltoDecimal(sayi));
 		Decimal decimal = new Decimal();
 		return decimal.decimaltobinary(snc);
 	}
+
 	public String octaltoDecimal(int sayi) {
-		int on = 0,i=0,bas;
-		while(sayi!=0) {
-			bas = sayi %10;
-			sayi /=10;
-			on += bas  * Math.pow(8,i);
+		int on = 0, i = 0, bas;
+		while (sayi != 0) {
+			bas = sayi % 10;
+			sayi /= 10;
+			on += bas * Math.pow(8, i);
 			++i;
 		}
-		return ""+on;
+		return "" + on;
 	}
+
 	public String octaltoHeks(int sayi) {
 		int snc = Integer.parseInt(octaltoDecimal(sayi));
 		Decimal decimal = new Decimal();
 		return decimal.decimaltoheks(snc);
 	}
-	
-	
-	
+
 }
